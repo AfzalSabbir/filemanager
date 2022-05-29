@@ -1,5 +1,5 @@
 {
-    "name": "backpack/filemanager",
+    "name": "afzalsabbir/filemanager",
     "description": "Backpack admin interface for files and folder, using elFinder",
     "license": "MIT",
     "authors": [
@@ -9,10 +9,10 @@
             "homepage": "https://backpackforlaravel.com"
         }
     ],
-    "homepage": "https://github.com/laravel-backpack/filemanager",
+    "homepage": "https://github.com/afzalsabbir/filemanager",
     "keywords": ["Laravel", "FileManager"],
     "require": {
-        "backpack/crud": "^4.1|^5.0",
+        "afzalsabbir/crud": "^4.1|^5.0",
         "barryvdh/laravel-elfinder": "^0.4.5"
     },
     "require-dev": {
