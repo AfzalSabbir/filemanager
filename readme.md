@@ -19,7 +19,7 @@ Backpack admin interface for files and folder, using [barryvdh/laravel-elfinder]
 From your command line, require the package (this will also require barryvdh/laravel-elfinder):
 
 ``` bash
-composer require backpack/filemanager
+composer require afzalsabbir/filemanager
 ```
 
 Then run the install process:
