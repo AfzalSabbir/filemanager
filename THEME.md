@@ -1,16 +1,14 @@
+## Now in `app\Http\Middleware\FileMangerMiddleware`
 
-## Sa
+Add this line in $middlewareGroups['web]
 
 ```
-Route::post('/admin/elfinder/{theme}', function (string $theme) {
-    Session::put('file_manager_theme', $theme);
-    Config::set('elfinder.default', $theme);
-    Setting::query()->updateOrCreate(
-        ['key' => 'file_manager_theme'],
-        ['value' => $theme]
-    );
-});
-```
-
-
+protected $middlewareGroups = [
+        'web' => [
+            ...
             \Backpack\FileManager\Middleware\FileMangerMiddleware::class,
+            ...
+        ],
+    ];
+    
+```
