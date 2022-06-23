@@ -11,3 +11,6 @@ Route::post('/admin/elfinder/{theme}', function (string $theme) {
     );
 });
 ```
+
+
+            \Backpack\FileManager\Middleware\FileMangerMiddleware::class,
