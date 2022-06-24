@@ -21,7 +21,7 @@ Route::group([
     ),
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () {
-    Route::post('/elfinder/{theme}', function (string $theme) {
+    Route::post('/elfinder/theme/{theme}', function (string $theme) {
         Session::put('elfinder_default', $theme);
         Config::set('elfinder.default', $theme);
     })->name('elfinder.theme');

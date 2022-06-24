@@ -15,7 +15,7 @@
                     @if($locale)
                         lang: '{{ $locale }}', // locale
                     @endif
-                    customData: { 
+                    customData: {
                         _token: '{{ csrf_token() }}'
                     },
                     url : '{{ route("elfinder.connector") }}',  // connector URL
@@ -34,7 +34,52 @@
 
 @section('header')
     <section class="container-fluid">
-      <h2>{{ trans('backpack::crud.file_manager') }}</h2>
+        <div class="d-flex justify-content-between">
+            <h2>{{ trans('backpack::crud.file_manager') }}</h2>
+            <label class="my-auto d-flex" style="gap: 6px">
+                @if(check_if_middleware_resolved($app))
+                    <span class="text-nowrap">{{__('Change theme')}} : </span>
+                    <select id="themeChanger" class="form-control form-control-sm">
+                        @foreach(config('elfinder.themes') ?? [] as $key => $themes)
+                            <optgroup label="{{ucfirst($key)}}">
+                                @foreach($themes as $themeName => $theme)
+                                    <option value="{{"$key.$themeName"}}"
+                                        {{ "$key.$themeName" === config('elfinder.default') ? 'selected' : ''}}>
+                                        {{ucfirst($themeName)}}
+                                    </option>
+                                @endforeach
+                            </optgroup>
+                        @endforeach
+                    </select>
+                    <script>
+                        let themeSelector = document.querySelector('select#themeChanger');
+                        themeSelector.addEventListener('change', function () {
+                            let theme = this.value;
+
+                            console.log(`/admin/elfinder/theme/${theme}`);
+
+                            //fetch post
+                            fetch(`/admin/elfinder/${theme}`, {
+                                method : 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                                },
+                                body   : JSON.stringify({
+                                    theme: theme,
+                                }),
+                            }).then(function (response) {
+                                window.location.reload();
+                            });
+                        });
+                    </script>
+                @else
+                    <code class="text-nowrap bg-secondary text-info rounded px-2">
+                        <i class="la la-info-circle text-info"></i> Missing <i>FileManagerMiddleware</i> in web middleware
+                        group. <a href="https://github.com/AfzalSabbir/filemanager#theme" target="_blank">Read more</a></code>
+                @endif
+            </label>
+        </div>
     </section>
 @endsection
 
