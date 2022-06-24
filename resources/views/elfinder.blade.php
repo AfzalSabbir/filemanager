@@ -56,10 +56,8 @@
                         themeSelector.addEventListener('change', function () {
                             let theme = this.value;
 
-                            console.log(`/admin/elfinder/theme/${theme}`);
-
                             //fetch post
-                            fetch(`/admin/elfinder/${theme}`, {
+                            fetch(`/admin/elfinder/theme/${theme}`, {
                                 method : 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',
