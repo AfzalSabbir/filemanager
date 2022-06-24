@@ -78,4 +78,70 @@ return [
 
     'options' => [],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Themes
+    |--------------------------------------------------------------------------
+    |
+    | Customize file manager theme here.
+    | Default value: 'backpack.default'
+    | See:
+    |   Material Theme: https://github.com/RobiNN1/elFinder-Material-Theme
+    |   DarkSlim Theme: https://github.com/johnfort/elFinder.themes
+    |
+    */
+
+    'default' => env('FILE_MANAGER_THEME', 'backpack.default'),
+    'themes' => [
+        'backpack'  => [
+            'default'  => [
+                'css' => 'packages/backpack/filemanager/themes/Backpack/elfinder.backpack.theme.css',
+                'js'  => '',
+            ],
+            'elfinder' => [
+                'css' => 'packages/barryvdh/elfinder/css/theme.css',
+                'js'  => '',
+            ],
+        ],
+        'dark-slim' => [
+            'default' => [
+                'css' => 'packages/backpack/filemanager/themes/DarkSlim/latest/css/elfinder.theme.min.css',
+                'js'  => '',
+            ],
+        ],
+        'libre-icons' => [
+            'bootstrap' => [
+                'css' => 'packages/backpack/filemanager/themes/LibreICONS/css/theme-bootstrap-libreicons-svg.css',
+                'js'  => '',
+            ],
+        ],
+        'material'  => [
+            'default' => [
+                'css' => 'packages/backpack/filemanager/themes/Material/css/theme.min.css',
+                'js'  => '',
+            ],
+            'gray'    => [
+                'css' => 'packages/backpack/filemanager/themes/Material/css/theme-gray.min.css',
+                'js'  => '',
+            ],
+            'light'   => [
+                'css' => 'packages/backpack/filemanager/themes/Material/css/theme-light.min.css',
+                'js'  => '',
+            ],
+        ],
+        'moono' => [
+            'default' => [
+                'css' => 'packages/backpack/filemanager/themes/Moono/css/theme.css',
+                'js'  => '',
+            ],
+        ],
+        'windows10' => [
+            'default' => [
+                'css' => 'packages/backpack/filemanager/themes/Windows10/css/theme.css',
+                'js'  => '',
+            ],
+        ],
+    ],
+
+    'middleware' => Backpack\FileManager\Middleware\FileManagerMiddleware::class,
 ];

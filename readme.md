@@ -13,7 +13,6 @@ Backpack admin interface for files and folder, using [barryvdh/laravel-elfinder]
 
 ![https://backpackforlaravel.com/uploads/docs-4-0/media_library.png](https://backpackforlaravel.com/uploads/docs-4-0/media_library.png)
 
-
 ## Installation
 
 From your command line, require the package (this will also require barryvdh/laravel-elfinder):
@@ -29,6 +28,30 @@ php artisan backpack:filemanager:install
 ```
 
 That's it. Hit refresh in your admin panel, and you'll find a new sidebar item pointing to the File Manager.
+
+## Theme
+
+### Setup `\Backpack\FileManager\Middleware\FileManagerMiddleware`
+
+Add this line in file: `app\Http\Kernel.php` and property: `$middlewareGroups['web']`
+
+```
+protected $middlewareGroups = [
+    'web' => [
+        ...
+        \Backpack\FileManager\Middleware\FileManagerMiddleware::class,
+        ...
+    ],
+];
+```
+
+Then publish the config, assets and view files:
+
+```bash
+php artisan vendor:publish --provider=Backpack\FileManager\FileManagerServiceProvider
+```
+
+[![download.png](https://i.postimg.cc/jdLBpPy6/download.png)](https://i.postimg.cc/jdLBpPy6/download.png)
 
 ## Usage
 

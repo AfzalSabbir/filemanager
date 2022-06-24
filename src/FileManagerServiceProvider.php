@@ -20,6 +20,7 @@ class FileManagerServiceProvider extends ServiceProvider
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'backpack');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'backpack');
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
@@ -43,8 +44,21 @@ class FileManagerServiceProvider extends ServiceProvider
             __DIR__.'/../config/elfinder.php'      => config_path('elfinder.php'),
         ], 'config');
 
+        // Publishing Themes
         $this->publishes([
             __DIR__.'/../public/packages/backpack/filemanager/themes/Backpack'      => public_path('packages/backpack/filemanager/themes/Backpack'),
+        ], 'public');
+        $this->publishes([
+            __DIR__.'/../public/packages/backpack/filemanager/themes/DarkSlim'      => public_path('packages/backpack/filemanager/themes/DarkSlim'),
+        ], 'public');
+        $this->publishes([
+            __DIR__.'/../public/packages/backpack/filemanager/themes/Material'      => public_path('packages/backpack/filemanager/themes/Material'),
+        ], 'public');
+        $this->publishes([
+            __DIR__.'/../public/packages/backpack/filemanager/themes/Windows10'      => public_path('packages/backpack/filemanager/themes/Windows10'),
+        ], 'public');
+        $this->publishes([
+            __DIR__.'/../public/packages/backpack/filemanager/themes/Moono'      => public_path('packages/backpack/filemanager/themes/Moono'),
         ], 'public');
 
         // Registering package commands.
