@@ -57,7 +57,7 @@
                             let theme = this.value;
 
                             //fetch post
-                            fetch(`/admin/elfinder/theme/${theme}`, {
+                            fetch(`{{route('elfinder.theme', '')}}/${theme}`, {
                                 method : 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',
