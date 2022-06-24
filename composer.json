@@ -12,7 +12,7 @@
     "homepage": "https://github.com/afzalsabbir/filemanager",
     "keywords": ["Laravel", "FileManager"],
     "require": {
-        "afzalsabbir/crud": "^4.1|^5.0",
+        "backpack/crud": "^4.1|^5.0",
         "barryvdh/laravel-elfinder": "^0.5.0"
     },
     "require-dev": {
